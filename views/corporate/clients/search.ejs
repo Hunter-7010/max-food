@@ -1,0 +1,82 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <div class="row">
+       <div class="col-sm-12">
+          <div class="card">
+             <div class="card-header d-flex justify-content-between">
+                <div class="header-title">
+                   <h4 class="card-title">Clients</h4>
+                   <a href="/clients/new">Add New Client</a>
+                </div>
+                <div class="searchScreen">
+                    <div class="searchInputBox">
+                        
+                        <input type="text" class="searchInput form-control" placeholder="Search"/>
+                        
+                        <div class="filterButton"></div>
+                        <div class="queryBox">
+                            <div class="priceBox">
+                            </div>
+                        </div>
+                        <div class="searchRealButton"></div>
+                        <div class="fakeBar"></div>
+                    </div>
+                    <ul class="autocompleteBox"></ul>
+                </div>
+             </div>
+             <div class="card-body">
+                
+                <div class="table-responsive">
+                   <table id="datatable" class="table table-striped">
+                      <thead>
+                         <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>NIP</th>
+                            <th>Total Debit</th>
+                            <th>Created At</th>
+                            <th>Balance</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                        <%for(let client of search){%>
+                         <tr>
+
+                            <td>
+                                <a href="/clients/<%=client._id%>"><svg width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+                                <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle> 
+                                 <path d="M18.0186 18.4851L21.5426 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                 </svg></a>
+                                <%=client.name%>
+                            </td>
+                            <td><%=client.address%></td>
+                            <td><%=client.nip%></td>
+                            <td><%=client.totalDebit%></td>
+                            <td><%let date = client.createdAt%><%=date.toISOString().substring(0,10)%></td>
+                            <td><%=client.balance%></td>
+                            
+                         </tr>
+                         <%}%>
+                      
+                      </tbody>
+                      <tfoot>
+                         <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>NIP</th>
+                            <th>Total Debit</th>
+                            <th>Created At</th>
+                            <th>Balance</th>
+                         </tr>
+                      </tfoot>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+       </div>
+<script src="/js/Corporate/clientSearch.js"></script>
+<%- include('../../partials/hopeFooter') %>
+

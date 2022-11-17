@@ -1,0 +1,150 @@
+<!doctype html>
+<html  lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Food</title>
+      
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    
+    <STYLE>
+      body {
+      background:none !important;
+      }
+      td {padding:0px !important; vertical-align:top !important;}
+      th {padding:5px !important;}
+      table-bordered > thead > tr > th, .table-bordered > thead > tr > th, table-bordered > tbody > tr > th, .table-bordered > tbody > tr > th, table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > th, table-bordered > thead > tr > td, .table-bordered > thead > tr > td, table-bordered > tbody > tr > td, .table-bordered > tbody > tr > td, table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > td {
+      background: #fff !important;
+      border-bottom: 1px solid #ddd !important;
+      border-top: none !important;
+      border-left: none !important;
+      border-right: none !important;
+      color: #000;
+      padding:3px !important;
+      }
+    </STYLE>
+          <!-- Library / Plugin Css Build -->
+          <link rel="stylesheet" href="/assets/css/core/libs.min.css" />
+             <!-- Custom Css -->
+      <link rel="stylesheet" href="/assets/css/custom.min.css?v=1.2.0" />
+            
+
+  </head>
+  <BODY >      
+      
+      <div class="r-small-page">
+        
+        
+        
+          
+          <TABLE class="table table-bordered">
+            <tbody>
+                  <TR >
+                  </tr>
+                  <TR>                  
+                      <TD colspan="6">
+                        
+                          <table style="line-height:25px !important; font-size:14px !important; font-weight:bold;">
+                            <tbody
+                            ><tr><td colspan="2">
+                                <h1><%=client.name%><br>(<%=client.address%>)</h1>
+                            </td>
+                            <td style="float:right">
+                                <div style="text-align:center; font-weight:bold;">
+                                <img src="/assets/images/max-food-logo.png" alt="Max Food Group" style="height:80px" />
+                                <br>
+                                <span style="font-size:12px !important">uI.  Poznańska 398A<br>05-850 Ołtarzew</span>
+                            </div></td></tr><tr><td style="vertical-align:top !important;">
+                                <table style="width:300px !important;">
+      
+                                        <tr>
+                                            <td style="border: thin #ddd solid !important; padding:5px !important;">Data </td>
+                                            <td style="border: thin #ddd solid !important; padding:5px !important;"><%=order.date.toISOString().substring(0,10)%></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: thin #ddd solid !important; padding:5px !important;">Trasa</td>
+                                            <td style="border: thin #ddd solid !important; padding:5px !important;"><%=order.route%></td>
+                                        </tr>
+                                    </table></td>
+                                    <td style="width: 100px !important;">&nbsp;</td>
+                                    <td style="vertical-align:top !important;">
+                                        <table style="width:400px !important;"><tr>
+                                            <td style="border: thin #ddd solid !important; padding:5px !important;">Nabywca </td>
+                                            <td style="border: thin #ddd solid !important; padding:5px !important;"><%=client.name%></td>
+                                        </tr><tr><td style="border: thin #ddd solid !important; vertical-align: top !important; padding:5px !important;">Adres </td>
+                                            <td style="border: thin #ddd solid !important; vertical-align: top !important; padding:5px !important;"><%=client.address%></td>
+                                        </tr>
+                                    </table></td></tr></tbody>
+                                </table>
+
+                      </td>   
+                  </tr>
+                  <tr>
+                      <TH >Item Name</th>
+                      <TH>Quantity</th>
+                      <TH>KG</th>
+                      <TH>Total KG </th>
+                      <TH>Unit Price</th>
+                      <TH > Total </th>  
+                  </tr>
+                  <%for(let item of order.items){%>
+                    <TR >
+                        <TD><%=item.name%></td>
+                        <TD style="text-align: center;"><%=item.quantity%></td>
+                        <TD style="text-align: center;"><%=item.amount%></td>
+                        <TD style="text-align: center;"><%=item.quantity*item.amount%></td>
+                        <TD style="text-align: center;"><%=item.price%></td>
+                            <% let withAmount= item.quantity*item.amount*item.price%> 
+                            <% let noAmount = item.quantity*item.price%> 
+                        <TD style="text-align: center;"><%if(item.amount){ %><%=Math.round(withAmount)%><% }else{ %><%=Math.round(noAmount)%><%}%></td>                   
+                    </tr> 
+                    <% } %>  
+                          
+                  <TR >
+                    
+                      <TD colspan="3">
+                       
+                          <h4 style="padding-top:30px !important;"><b>Otrzymana Kwota: </b></h4>
+                          <h4 style="padding-top:30px !important;"><b>Towar Odebrał:</b></h4>
+                          <h4 style="padding-bottom:30px !important;"><b>Imię Nazwisko:</b></h4>
+                       
+                      </td>
+                    
+                    
+                      <TD colspan="3" >
+                          <p style="margin-top:10px">&nbsp;</p>
+                          <table style="width:350px !important; line-height:25px !important; font-size:14px !important; float:right "><tbody>
+                              <tr><td style="border: thin #ddd solid !important; padding:5px !important;"><strong>Do Zapłaty:</strong> </td>
+                                <td style="border: thin #ddd solid !important; padding:5px !important;"><b> <%=Math.round(order.totalAmountAll) %> </b></td></tr>
+                                <tr><td style="border: thin #ddd solid !important; padding:5px !important;"><strong>Dług Pozostał:</strong> </td>
+                                <td style="border: thin #ddd solid !important; padding:5px !important;"><b> <%=Math.round(order.preBalance)%> </b></td></tr>
+                                <tr><td style="border: thin #ddd solid !important; padding:5px !important;"><strong>Całkowite do Zapłaty:</strong> </td>
+                                                                                                                <% const total = order.preBalance+order.totalAmountAll %> 
+                                <td style="border: thin #ddd solid !important; padding:5px !important;"><b> <%=Math.round(total)%> </b></td></tr>
+                            </tbody></table>
+                       
+                      </td>
+                    
+                  </tr>
+                  <TR>
+                    
+                      <TD colspan="6" >
+                          <p style="font-size:11px !important; padding:5px !important;"><br></p>
+                      </td>
+                  </tr>
+
+            </tbody>
+          </table>
+
+      </div>
+    </div>
+<!-- Library Bundle Script -->
+<script src="/assets/js/core/libs.min.js"></script>
+<script>
+      window.addEventListener("load",function(e){
+          window.print();
+      })
+</script>
+  </body>
+
+</html>

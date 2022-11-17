@@ -1,0 +1,97 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <h1 class="text-center">Ledgers</h1>
+    <div class="col-6 offset-3">
+        <form action="/ledgers/<%=ledgers._id%>?_method=PUT" method="post" class="validationForm" novalidate>
+            <!-- THIS IS SAYING TO BROWSER TO NOT VALIDATE-->
+            <div class="mb-3">
+                <label class="form-label" for="clientName">Name</label>
+                <div class="searchScreen">
+                    <div class="searchInputBox">
+                      <input type="text" class="searchInput form-control" name="name" id="clientName" value="<%=ledgers.name%>" required>
+                        <div class="filterButton"></div>
+                        <div class="queryBox">
+                            <div class="priceBox">
+                            </div>
+                        </div>
+                        <div class="searchRealButton"></div>
+                        <div class="fakeBar"></div>
+                    </div>
+                    <ul class="autocompleteBox"></ul>
+                </div>
+
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="amount">Amount</label>
+                <input class="form-control" type="text" name="amount" id="amount" value="<%=ledgers.amount%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="form-label" for="date">Date Input</label> 
+
+                    <input type="date" class="form-control" id="date" name="date" value="<%=ledgers.date.toISOString().substring(0,10)%>">
+
+                </div>
+               
+            </div>
+            
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="form-label" for="exampleFormControlSelect1">Select Input</label>
+                    <select class="form-select" id="exampleFormControlSelect1" name="method">
+                    <option value="<%=ledgers.method%>" selected><%=ledgers.method%></option>
+                    <option value="CASH">Cash</option>
+                    <option value="BANK">Bank</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="balance">balance</label>
+                <input class="form-control" type="text" id="balance" value="<%=clients.balance%>" disabled required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="note">Notes</label>
+                <input class="form-control" type="text" name="note" id="note" value="<%=ledgers.note%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="hidden" id="customerId" name="customerId" value="<%=ledgers.customerId%>" required>
+
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <button class="btn btn-primary" id="saveButton">Edit</button>
+            </div>
+        </form>
+        <footer>
+            <a href="/ledgers" class="mb-3">Back to All</a>
+            <form action="/ledgers/<%=ledgers._id%>?_method=DELETE" method="post">
+                <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">DELETE</button>
+            </form>
+        </footer>
+    </div>
+</div>
+<script src="/js/Corporate/saveA.js"></script>
+<script src="/js/Corporate/clientSearchL.js"></script>
+<%- include('../../partials/hopeFooter') %>

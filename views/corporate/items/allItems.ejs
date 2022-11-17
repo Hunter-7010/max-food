@@ -1,0 +1,218 @@
+<%- include('../../partials/hopeNavbar') %> <%- include('../../partials/flash')
+%>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <div class="header-title">
+            <h4 class="card-title">
+              items
+              <a
+                data-bs-toggle="tooltip"
+                data-bs-original-title="Items are sorted by Quantity"
+              >
+                <svg
+                  width="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.33 16.5928H4.0293"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M13.1406 6.90042H19.4413"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.72629 6.84625C8.72629 5.5506 7.66813 4.5 6.36314 4.5C5.05816 4.5 4 5.5506 4 6.84625C4 8.14191 5.05816 9.19251 6.36314 9.19251C7.66813 9.19251 8.72629 8.14191 8.72629 6.84625Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.0002 16.5538C20.0002 15.2581 18.9429 14.2075 17.6379 14.2075C16.3321 14.2075 15.2739 15.2581 15.2739 16.5538C15.2739 17.8494 16.3321 18.9 17.6379 18.9C18.9429 18.9 20.0002 17.8494 20.0002 16.5538Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </a>
+            </h4>
+            <a href="/items/new">Add New item</a>
+          </div>
+          <div class="searchScreen">
+            <div class="searchInputBox">
+              <input
+                type="text"
+                class="searchInput form-control"
+                placeholder="Search"
+              />
+
+              <div class="filterButton"></div>
+              <div class="queryBox">
+                <div class="priceBox"></div>
+              </div>
+              <div class="searchRealButton"></div>
+              <div class="fakeBar"></div>
+            </div>
+            <ul class="autocompleteBox"></ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="datatable" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Amount</th>
+                  <th>Quantity</th>
+                  <th>Created At</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%for(let item of items){%>
+                <tr>
+                  <td>
+                    <a
+                      href="/items/<%=item._id%>"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Show item"
+                      ><svg
+                        width="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="11.7669"
+                          cy="11.7666"
+                          r="8.98856"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></circle>
+                        <path
+                          d="M18.0186 18.4851L21.5426 22"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                    ></a>
+                    <%=item.itemName%>
+                  </td>
+                  <td><%=item.unit%></td>
+                  <td><%=item.quantity%></td>
+                  <td>
+                    <%let date =
+                    item.createdAt%><%=date.toISOString().substring(0,10)%>
+                  </td>
+                  <td><%=item.price%></td>
+                </tr>
+                <%}%>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Amount</th>
+                  <th>Quantity</th>
+                  <th>Created At</th>
+                  <th>Price</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="dataTables_paginate paging_simple_numbers"
+              id="datatable_paginate"
+            >
+              <ul class="pagination">
+                <li
+                  class="paginate_button page-item previous <%if(p==1){%>disabled<%}%>"
+                  id="datatable_previous"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/items?p=<%=parseInt(p)-1%>"
+                    class="page-link"
+                    >Previous</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==1){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/items?p=1"
+                    class="page-link"
+                    >1</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==2){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/items?p=2"
+                    class="page-link"
+                    >2</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==3){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/items?p=3"
+                    class="page-link"
+                    >3</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==4){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/items?p=4"
+                    class="page-link"
+                    >4</a
+                  >
+                </li>
+                <li class="paginate_button page-item disabled">
+                  <a class="page-link">...</a>
+                </li>
+                <li
+                  class="paginate_button page-item <%if(p==count){%>active<%}%>"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/items?p=<%=count%>"
+                    class="page-link"
+                    ><%=count%></a
+                  >
+                </li>
+                <li
+                  class="paginate_button page-item next <%if(p==count){%>disabled<%}%>"
+                  id="datatable_next"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/items?p=<%=parseInt(p)+1%>"
+                    class="page-link"
+                    >Next</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/Corporate/itemSearch.js"></script>
+<%- include('../../partials/hopeFooter') %>

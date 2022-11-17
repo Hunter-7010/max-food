@@ -1,0 +1,33 @@
+# [MaxFood](https://maxfood.up.railway.app/)
+
+Is an invoice app that you create your invoices, update and delete your invoices from a single dashboard,
+See all your profit, income, loss and expense of this month and for the last month.
+Give your clients special prices
+Create users and authorize them for certain Roles.
+### To visit this webpage click the title.
+- inside the webpage navigate to corporate and sign in with:
+- username: admin
+- password: admin
+
+## Technologies Used:
+- [Node.js®](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [EJS](https://ejs.co/)
+- [MongoDB](https://www.mongodb.com/)
+- [Hope UI](https://hopeui.iqonic.design/)
+- [Vanilla JS]()
+- [Passport.js](https://www.passportjs.org/)
+
+
+## How do I deploy this?
+### With [Railway.app!](https://railway.app/)
+
+## Thing to learn from this project
+- How to create REST API's.
+- Connect with your MongoDB Atlas Instance.
+- Use Atlas search for auto complete search And fuzzy search.
+- Create invoice page with dynamic user inputs.
+- Keep track of user dynamic inputs with Event bubbling.
+- Authenticate Users using Passport.js
+- Authorize users
+- Use connect-flash to flash users with error and success messages.

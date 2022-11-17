@@ -1,0 +1,91 @@
+<%- include('../../partials/hopeNavbar') %>
+  <%- include('../../partials/flash') %>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="container mb-5 mt-3">
+          <div class="row d-flex align-items-baseline">
+            <div class="col-xl-9">
+              <p style="color: #7e8d9f;font-size: 20px;"><strong>Special Prices</strong></p>
+            </div>
+            <hr>
+          </div>
+          <form action="/clients/<%=clients._id%>/specialPrice" method="post" class="needs-validation" novalidate>
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-3">
+                  <ul class="list-unstyled">
+                    <!-- <li class="text-muted"><label for="clientName">Client Name:</label><input type="text"
+                        class="form-control mb-2" id="clientName" name="clientName"></li> -->
+                     
+                  </ul>
+                </div>
+                <div class="col-6"></div>
+                <div class="col-xl-3">
+                 
+                  <ul class="list-unstyled">
+                    <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                        class="fw-bold">Client: </span><%=clients.name%></li>
+                        
+                        <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                            class="fw-bold">Address: </span><%=clients.address%></li>
+                    <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                        class="fw-bold">Creation Date: </span><%=clients.createdAt%></li>  
+                  </ul>
+                </div>
+              </div>
+              <div class="container border" id="itemsContainer">
+                <%for(let i = 0; i <clients.specialPrice.length; i++) {%>
+                <div class="row my-2 mx-1">
+
+                  <div class="col-8"><label class="form-label">Name:</label>
+                    <div class="searchScreen">
+                      <div class="searchInputBox">
+                        <input type="text" class="searchInput form-control is-valid" name="<%=i%>[name]" value="<%=clients.specialPrice[i].name%>" required>
+                        <div class="searchRealButton"></div>
+                        <div class="fakeBar"></div>
+                      </div>
+                      <ul class="autocompleteBox"></ul>
+                    </div>
+                  </div>
+                 
+                  <div class="col-3"><label class="form-label">Price:</label><input class="form-control is-valid"
+                      id="price" name="<%=i%>[price]" type="number" value="<%=clients.specialPrice[i].price%>" required></div>
+
+                      <div class="col-1">
+                        <label for=""></label>
+                        <button class="btn btn-danger deleteButton" type="button">DELETE</button>
+                       </div>
+
+                       <input type="hidden" name="<%=i%>[itemId]" value="<%=clients.specialPrice[i].itemId%>" required>
+                    </div>
+                    <% } %> 
+                  
+           
+                </div>
+               
+              </div>
+              <button id="addNewItem" class="btn btn-primary mt-2" type="button" style="position:static">Add item</button>
+              
+              <hr>
+              <div class="row">
+                <div class="col-xl-10">
+                 
+                </div>
+                <div class="col-xl-2">
+                  <button type="submit" class="btn btn-primary text-capitalize" id="saveButton">Save</button>
+                </div>
+              </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="/js/Corporate/addItemSp.js"></script>
+    <script src="/js/Corporate/MitemSearchSp.js"></script>
+    
+
+
+    <%- include('../../partials/hopeFooter') %>

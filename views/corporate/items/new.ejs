@@ -1,0 +1,68 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <h1 class="text-center">items</h1>
+    <div class="col-6 offset-3">
+        <form action="/items" method="post" class="needs-validation" novalidate>
+            <!-- THIS IS SAYING TO BROWSER TO NOT VALIDATE-->
+            <div class="mb-3">
+                <label class="form-label" for="itemName">Name</label>
+                <input class="form-control is-valid" type="text" name="item[itemName]" id="itemName" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Price</label>
+                <input class="form-control is-valid" type="text" name="item[price]" id="price" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="buyPrice">Buy Price</label>
+                <input class="form-control is-valid" type="text" name="item[buyPrice]" id="buyPrice" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="quantity">Quantity</label>
+                <input class="form-control is-valid" type="text" name="item[quantity]" id="quantity" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+             <div class="mb-3">
+                <label class="form-label" for="unit">Unit 
+                    <a data-bs-toggle="tooltip" data-bs-original-title="KG ,SZT, ...">                                
+                        <svg width="27" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                   
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.81409 20.4368H19.1971C20.7791 20.4368 21.7721 18.7267 20.9861 17.3527L13.8001 4.78775C13.0091 3.40475 11.0151 3.40375 10.2231 4.78675L3.02509 17.3518C2.23909 18.7258 3.23109 20.4368 4.81409 20.4368Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    
+                        <path d="M12.0024 13.4147V10.3147" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    
+                        <path d="M11.995 16.5H12.005" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>                                
+                      </svg>                            
+                      </a>
+                </label>
+                <input class="form-control is-valid" type="text" name="item[unit]" id="unit" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="amount">Amount 
+                    <a data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Ex: Lider 20 KG (20 is the amount). if not in kg then input should be left blank">                                
+                        <svg width="27" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                   
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.81409 20.4368H19.1971C20.7791 20.4368 21.7721 18.7267 20.9861 17.3527L13.8001 4.78775C13.0091 3.40475 11.0151 3.40375 10.2231 4.78675L3.02509 17.3518C2.23909 18.7258 3.23109 20.4368 4.81409 20.4368Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    
+                        <path d="M12.0024 13.4147V10.3147" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    
+                        <path d="M11.995 16.5H12.005" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>                                
+                      </svg>                            
+                      </a>
+                </label>
+                <input class="form-control" type="number" name="item[amount]" id="amount">
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success" id="saveButton">Create</button>
+            </div>
+        </form>
+        <footer>
+            <a href="/items">Back to All</a>
+        </footer>
+    </div>
+</div>
+<script src="/js/Corporate/saveA.js"></script>
+<%- include('../../partials/hopeFooter') %>

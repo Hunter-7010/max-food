@@ -1,0 +1,298 @@
+<%- include('../../partials/hopeNavbar') %> <%- include('../../partials/flash')
+%>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <div class="header-title">
+            <h4 class="card-title">
+              orders
+              <a
+                data-bs-toggle="tooltip"
+                data-bs-original-title="Orders are sorted by Date"
+              >
+                <svg
+                  width="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.33 16.5928H4.0293"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M13.1406 6.90042H19.4413"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.72629 6.84625C8.72629 5.5506 7.66813 4.5 6.36314 4.5C5.05816 4.5 4 5.5506 4 6.84625C4 8.14191 5.05816 9.19251 6.36314 9.19251C7.66813 9.19251 8.72629 8.14191 8.72629 6.84625Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20.0002 16.5538C20.0002 15.2581 18.9429 14.2075 17.6379 14.2075C16.3321 14.2075 15.2739 15.2581 15.2739 16.5538C15.2739 17.8494 16.3321 18.9 17.6379 18.9C18.9429 18.9 20.0002 17.8494 20.0002 16.5538Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </a>
+            </h4>
+            <a href="/orders/new">Add New order</a>
+          </div>
+          <div class="searchScreen">
+            <div class="searchInputBox">
+              <input
+                type="text"
+                class="searchInput form-control"
+                placeholder="Search"
+              />
+
+              <div class="filterButton"></div>
+              <div class="queryBox">
+                <div class="priceBox"></div>
+              </div>
+              <div class="searchRealButton"></div>
+              <div class="fakeBar"></div>
+            </div>
+            <ul class="autocompleteBox"></ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="datatable" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Route</th>
+                  <th>Total</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%for(let order of orders){%>
+                <tr>
+                  <td>
+                    <a
+                      href="/orders/print/<%=order._id%>"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Print order"
+                      target="_blank"
+                    >
+                      <svg
+                        width="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M15.7161 16.2234H8.49609"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M15.7161 12.0369H8.49609"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M11.2521 7.86011H8.49707"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M15.909 2.74976C15.909 2.74976 8.23198 2.75376 8.21998 2.75376C5.45998 2.77076 3.75098 4.58676 3.75098 7.35676V16.5528C3.75098 19.3368 5.47298 21.1598 8.25698 21.1598C8.25698 21.1598 15.933 21.1568 15.946 21.1568C18.706 21.1398 20.416 19.3228 20.416 16.5528V7.35676C20.416 4.57276 18.693 2.74976 15.909 2.74976Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      href="/orders/<%=order._id%>/edit"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Edit order"
+                    >
+                      <svg
+                        width="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.7476 20.4428H21.0002"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M12.78 3.79479C13.5557 2.86779 14.95 2.73186 15.8962 3.49173C15.9485 3.53296 17.6295 4.83879 17.6295 4.83879C18.669 5.46719 18.992 6.80311 18.3494 7.82259C18.3153 7.87718 8.81195 19.7645 8.81195 19.7645C8.49578 20.1589 8.01583 20.3918 7.50291 20.3973L3.86353 20.443L3.04353 16.9723C2.92866 16.4843 3.04353 15.9718 3.3597 15.5773L12.78 3.79479Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M11.021 6.00098L16.4732 10.1881"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      href="/orders/<%=order._id%>"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Show order"
+                      ><svg
+                        width="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="11.7669"
+                          cy="11.7666"
+                          r="8.98856"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></circle>
+                        <path
+                          d="M18.0186 18.4851L21.5426 22"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                    ></a>
+                    <%=order.clientName%>
+                  </td>
+                  <td><%=order.clientAddress%></td>
+                  <td><%=order.route%></td>
+                  <td><%=order.totalAmountAll%></td>
+                  <td>
+                    <%let date =
+                    order.date%><%=date.toISOString().substring(0,10)%>
+                  </td>
+                </tr>
+                <%}%>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Route</th>
+                  <th>Total</th>
+                  <th>Date</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="dataTables_paginate paging_simple_numbers"
+              id="datatable_paginate"
+            >
+              <ul class="pagination">
+                <li
+                  class="paginate_button page-item previous <%if(p==1){%>disabled<%}%>"
+                  id="datatable_previous"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/orders?p=<%=parseInt(p)-1%>"
+                    class="page-link"
+                    >Previous</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==1){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/orders?p=1"
+                    class="page-link"
+                    >1</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==2){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/orders?p=2"
+                    class="page-link"
+                    >2</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==3){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/orders?p=3"
+                    class="page-link"
+                    >3</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==4){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/orders?p=4"
+                    class="page-link"
+                    >4</a
+                  >
+                </li>
+                <li class="paginate_button page-item disabled">
+                  <a class="page-link">...</a>
+                </li>
+                <li
+                  class="paginate_button page-item <%if(p==count){%>active<%}%>"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/orders?p=<%=count%>"
+                    class="page-link"
+                    ><%=count%></a
+                  >
+                </li>
+                <li
+                  class="paginate_button page-item next <%if(p==count){%>disabled<%}%>"
+                  id="datatable_next"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/orders?p=<%=parseInt(p)+1%>"
+                    class="page-link"
+                    >Next</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/Corporate/clientSearchOrder.js"></script>
+<%- include('../../partials/hopeFooter') %>

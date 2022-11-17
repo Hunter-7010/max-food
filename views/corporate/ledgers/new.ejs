@@ -1,0 +1,86 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+
+    <h1 class="text-center">Ledgers</h1>
+    <div class="col-6 offset-3">
+        <form action="/ledgers/new" method="post" class="needs-validation" novalidate>
+            <!-- THIS IS SAYING TO BROWSER TO NOT VALIDATE-->
+            <div class="mb-3">
+                <label class="form-label" for="clientName">Name</label>
+                <div class="searchScreen">
+                    <div class="searchInputBox">
+                      <input type="text" class="searchInput form-control is-valid" name="name" id="clientName" required>
+                        <div class="filterButton"></div>
+                        <div class="queryBox">
+                            <div class="priceBox">
+                            </div>
+                        </div>
+                        <div class="searchRealButton"></div>
+                        <div class="fakeBar"></div>
+                    </div>
+                    <ul class="autocompleteBox"></ul>
+                </div>
+
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+               
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="amount">Amount</label>
+                <input class="form-control is-valid" type="text" name="amount" id="amount" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+               
+            </div>
+
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="form-label" for="date">Date Input</label> 
+                    <% const today = new Date() %> 
+
+                    <input type="date" class="form-control" id="date" name="date" value="<%=today.toISOString().substring(0,10)%>">
+
+                </div>
+               
+            </div>
+            
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="form-label" for="exampleFormControlSelect1">Select Input</label>
+                    <select class="form-select" id="exampleFormControlSelect1" name="method">
+                    <option disabled>Select</option>
+                    <option value="CASH" selected>Cash</option>
+                    <option value="BANK">Bank</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="balance">balance</label>
+                <input class="form-control" type="text" id="balance" disabled required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+               
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="note">Notes</label>
+                <input class="form-control" type="text" name="note" id="note">
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+               
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="hidden" id="customerId" name="customerId" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+            </div>
+           
+            <div class="mb-3">
+                <button class="btn btn-success" id="saveButton">Create</button>
+            </div>
+        </form>
+        <footer>
+            <a href="/ledgers">Back to All</a>
+        </footer>
+    </div>
+
+</div>
+<script src="/js/Corporate/saveA.js"></script>
+<script src="/js/Corporate/clientSearchL.js"></script>
+<%- include('../../partials/hopeFooter') %>

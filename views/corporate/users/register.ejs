@@ -1,0 +1,33 @@
+<%- include('../../partials/hopeNavbar') %>
+    <%- include('../../partials/flash') %>
+    <div class="conatiner-fluid content-inner mt-5 py-0">
+        <h2>Register a new User</h2>
+        <form action="/register" method="POST" class="needs-validation" novalidate>
+            <div class="mb-2">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control is-valid" name="username" placeholder="Username" required>
+            </div>
+            <div class="mb-2">
+                <label for="username" class="form-label">Email</label>
+                <input type="email" class="form-control is-valid" name="email" placeholder="Email" required>
+            </div>
+            <div class="mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control is-valid" name="password" placeholder="Password" required>
+            </div> 
+            <div class="mb-2">
+                <div class="form-group">
+                    <label class="form-label" for="exampleFormControlSelect1">Select Input</label>
+                    <select class="form-select" id="exampleFormControlSelect1" name="role" required>
+                    <option selected="" id="selectRole" value="">Select a Role</option>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="ORDER">ORDER ENTRISTER</option>
+                    <option value="ACCOUNTANT">ACCOUNTANT</option>
+                    <option value="BASIC">BASIC</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Register</button>
+        </form>
+              </div>
+<%- include('../../partials/hopeFooter') %>

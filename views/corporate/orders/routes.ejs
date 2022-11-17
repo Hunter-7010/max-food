@@ -1,0 +1,173 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <div class="row">
+        <div class="form-group col-lg-3">
+            <label class="form-label" for="date">Date Input</label> 
+            
+            <input type="date" class="form-control" id="date" name="date" value="">
+            <button class="btn btn-primary mt-2" id="dateSubmit" type="button">Submit</button>
+        </div>
+        <div class="form-group col-lg-3">
+         <label class="form-label" for="select">Select Input</label>
+         <select class="form-select" id="select" name="route">
+         <option selected="" id="selectRoute" value="">Select</option>
+            <option value="" disabled>Please select</option><option value="AUGUSTOW">AUGUSTOW</option><option value="AUGUSTOW 2">AUGUSTOW 2</option><option value="BIALYSTOK">BIALYSTOK</option><option value="Bialystok 2">Bialystok 2</option><option value="CENTRUM">CENTRUM</option><option value="Elblag">Elblag</option><option value="GDANSK">GDANSK</option><option value="GIZYCKO">GIZYCKO</option><option value="Goldap">Goldap</option><option value="Grajewo">Grajewo</option><option value="Hajnówka">Hajnówka</option><option value="HRUBIESZOW">HRUBIESZOW</option><option value="KATOWICE">KATOWICE</option><option value="KETRZYN">KETRZYN</option><option value="KOLNO">KOLNO</option><option value="Kozle">Kozle</option><option value="Krakow">Krakow</option><option value="KUTNO">KUTNO</option><option value="Kutno 2">Kutno 2</option><option value="KWIDZYN">KWIDZYN</option><option value="Lebork">Lebork</option><option value="Legnica">Legnica</option><option value="LIPNO">LIPNO</option><option value="LODZ">LODZ</option><option value="Lubań">Lubań</option><option value="Lubartów">Lubartów</option><option value="lubelskim">lubelskim</option><option value="Lublin">Lublin</option><option value="MAGAZYN">MAGAZYN</option><option value="Mragowo">Mragowo</option><option value="MSZCZONOW">MSZCZONOW</option><option value="Nowa Sól">Nowa Sól</option><option value="Okonek">Okonek</option><option value="OLSZTYN">OLSZTYN</option><option value="Olsztyn 2">Olsztyn 2</option><option value="Oława">Oława</option><option value="OPOCZNO">OPOCZNO</option><option value="OSTRODA">OSTRODA</option><option value="OSTRODA 2">OSTRODA 2</option><option value="OSTROLEKA">OSTROLEKA</option><option value="PLOCK">PLOCK</option><option value="POZNAN">POZNAN</option><option value="PRZASNYCZ">PRZASNYCZ</option><option value="Raciborz">Raciborz</option><option value="RYBNIK">RYBNIK</option><option value="SANDOMIERZ">SANDOMIERZ</option><option value="Siedlec">Siedlec</option><option value="Śląski">Śląski</option><option value="Sochaczew">Sochaczew</option><option value="sokolka 2">sokolka 2</option><option value="Sokółka">Sokółka</option><option value="Suwałki">Suwałki</option><option value="SZCZECIN">SZCZECIN</option><option value="TRASA ZIELONA GORA">TRASA ZIELONA GORA</option><option value="Wałbrzych">Wałbrzych</option><option value="Warsaw">Warsaw</option><option value="Wegorzewo">Wegorzewo</option><option value="Wlodawa">Wlodawa</option><option value="Wroclaw">Wroclaw</option><option value="Zakroczym">Zakroczym</option><option value="Zawiercie">Zawiercie</option><option value="Zgorzelec">Zgorzelec</option><option value="ZIELONA GORA">ZIELONA GORA</option>
+         </select>
+     </div>
+    </div> 
+
+   
+    <div class="row mt-2">  
+                 
+       <div class="col-lg-7">
+         
+         <% for(order of orders){ %> 
+          <div class="card   rounded" >
+             <div class="card-body">
+                <div class="row">
+                   <div class="col-sm-6">
+                     <h5>Route:</h5>   
+                    <h5 class="text-muted routes mt-1"><%=order.route%></h5>
+                    <br> 
+                    <span class="fw-bold"><h5>Client Name: </span> <%=order.clientName%></h5>
+                     <br>
+                     <span class="fw-bold">Address: </span> <%=order.clientAddress%>
+                 
+                   </div>
+                   <div class="col-sm-6"> 
+                      <br>
+                     <br>
+                     <span class="fw-bold">Nip: </span><%=order.nip%>
+                     <br>
+                      <span class="fw-bold">Previos Balance: </span><%=order.preBalance%>
+                       <br>
+                    <span class="fw-bold">Date: </span><%=order.date.toISOString().substring(0,10)%>
+                     
+                    
+                       
+                   </div>
+                </div>
+                <div class="row">
+                   <div class="col-sm-12 mt-4">
+                      <div class="table-responsive">
+                         <table class="table table-sm table-bordered">
+                            <thead>
+                               <tr>
+                                  <th class="text-center">Item</th>
+                                  <th class="text-center" scope="col">Quantity</th>
+                                  <th class="text-center" scope="col">Amount</th>
+                                  <th class="text-center" scope="col">Price</th>
+                                  <th class="text-center" scope="col">Totals</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                            
+                                <%for(let item of order.items){%>
+                                    <tr>
+                                      <td>
+                                         <h6 class="mb-0"> <%=item.name%> </h6>
+                                      </td>
+                                      
+                                       <td class="text-center"><%=item.quantity%></td>
+                                       <td class="text-center"><%=item.amount%></td>
+                                       <td class="text-center"><%=item.price%></td>
+                                       <td class="text-center"><%if(item.amount){ %><%=item.quantity*item.amount*item.price%><% }else{ %><%=item.quantity*item.price%><% }%></td>
+                                    </tr>
+                                    <% } %>
+                            
+                               <tr>
+                                  <td>
+                                     <h6 class="mb-0">Total:</h6>
+                                  </td>
+                                  <td class="text-center"></td>
+                                  <td class="text-center"></td>
+                                  <td class="text-center"></td>
+                                  <td class="text-center"><b><%=order.totalAmountAll%></b></td>
+                               </tr>
+                            
+                            </tbody>
+                         </table>
+                      </div>
+                   </div>                              
+                </div>
+                
+             </div>
+          </div>
+          <% } %> 
+       </div> 
+
+       <div class="col-lg-5">
+
+         <div class="card rounded">
+            <div class="card-body">
+               <div class="row">
+                  <div class="col-sm-6">   
+               
+                
+                  </div>
+                  <div class="col-sm-6"> 
+                  
+                  </div>
+               </div>
+               <div class="d-flex justify-content-end">
+                  <button class="btn btn-sm btn-success" type="button" id="printRoute">
+                     <svg width="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">   
+                        <path d="M15.7161 16.2234H8.49609" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                     
+                          <path d="M15.7161 12.0369H8.49609" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                           
+                            <path d="M11.2521 7.86011H8.49707" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                              
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M15.909 2.74976C15.909 2.74976 8.23198 2.75376 8.21998 2.75376C5.45998 2.77076 3.75098 4.58676 3.75098 7.35676V16.5528C3.75098 19.3368 5.47298 21.1598 8.25698 21.1598C8.25698 21.1598 15.933 21.1568 15.946 21.1568C18.706 21.1398 20.416 19.3228 20.416 16.5528V7.35676C20.416 4.57276 18.693 2.74976 15.909 2.74976Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                             </path> 
+                            </svg>                            
+                     Print
+                  </button>
+                  </div>
+               <div class="row" id="route">
+                  <div class="col-sm-12 mt-4">
+                     <div class="table-responsive">
+                        <table class="table table-sm table-bordered">
+                           <thead>
+                              <tr>
+                                 <th class="text-center">Item</th>
+                                 <th class="text-center" scope="col">Quantity</th>
+                                 <th class="text-center" scope="col">Amount</th>
+                             
+                              </tr>
+                           </thead>
+                           <tbody>
+                           
+                               <%for(let item of result){%>
+                                   <tr>
+                                     <td class="ms-0">
+                                        <h6 class="mb-0"> <%=item.name%> </h6>
+                                     </td>
+                                     
+                                      <td class="text-center"><%=item.quantity%></td>
+                                      <td class="text-center"><%=item.amount * item.quantity%></td>
+                                   </tr>
+                                   <% } %>
+                           
+                              <tr>
+                                 <td>
+                                    <h6 class="mb-0">Total:</h6>
+                                 </td>
+                                 <td class="text-center"></td>
+                                 <td class="text-center"><b><%=sum%> Kg</b></td>
+                              </tr>
+                           
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>                              
+               </div>
+               
+            </div>
+         </div>
+         
+       </div>                                   
+    </div>
+   
+
+</div>
+<script src="/js/Corporate/orderDate.js"></script>
+<%- include('../../partials/hopeFooter') %>

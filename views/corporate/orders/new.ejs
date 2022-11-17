@@ -1,0 +1,142 @@
+<%- include('../../partials/hopeNavbar') %>
+  <%- include('../../partials/flash') %>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="container mb-5 mt-3">
+          <div class="row d-flex align-items-baseline">
+            <div class="col-xl-9">
+              <p style="color: #7e8d9f;font-size: 20px;">Invoice >></p>
+            </div>
+            <hr>
+          </div>
+          <form action="/orders" class="needs-validation" method="post">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-3">
+                  <ul class="list-unstyled">
+                
+                        <li class="text-muted"><label for="clientName">Client Name: 
+                          <a data-bs-toggle="tooltip" data-bs-original-title="Always specify client first">                                
+                            <svg width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                    
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.81409 20.4368H19.1971C20.7791 20.4368 21.7721 18.7267 20.9861 17.3527L13.8001 4.78775C13.0091 3.40475 11.0151 3.40375 10.2231 4.78675L3.02509 17.3518C2.23909 18.7258 3.23109 20.4368 4.81409 20.4368Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    
+                            <path d="M12.0024 13.4147V10.3147" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    
+                            <path d="M11.995 16.5H12.005" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>                                
+                          </svg>                                                                                 
+                          </a> 
+                        </label>  <div class="searchScreen">
+                          <div class="searchInputBox">
+                            <input type="text" class="searchInput form-control mb-2" id="clientName" name="clientName" required>
+                              <div class="filterButton"></div>
+                              <div class="queryBox">
+                                  <div class="priceBox">
+                                  </div>
+                              </div>
+                              <div class="searchRealButton"></div>
+                              <div class="fakeBar"></div>
+                          </div>
+                          <ul class="autocompleteBox"></ul>
+                      </div>
+                    </li>
+                    <li class="text-muted"><label for="address">Address:</label><input type="text"
+                        class="form-control mb-2" id="address" name="clientAddress"></li>
+                  </ul>
+                </div>
+                <div class="col-6"></div>
+                <div class="col-xl-3">
+                  <div class="form-group">
+                    <label class="form-label" for="exampleFormControlSelect1">Select Input</label>
+                    <select class="form-select" id="exampleFormControlSelect1" name="route" required>
+                    <option selected="" id="selectRoute" value="">Select</option>
+                       <option value="" disabled>Please select</option><option value="AUGUSTOW">AUGUSTOW</option><option value="AUGUSTOW 2">AUGUSTOW 2</option><option value="BIALYSTOK">BIALYSTOK</option><option value="Bialystok 2">Bialystok 2</option><option value="CENTRUM">CENTRUM</option><option value="Elblag">Elblag</option><option value="GDANSK">GDANSK</option><option value="GIZYCKO">GIZYCKO</option><option value="Goldap">Goldap</option><option value="Grajewo">Grajewo</option><option value="Hajnówka">Hajnówka</option><option value="HRUBIESZOW">HRUBIESZOW</option><option value="KATOWICE">KATOWICE</option><option value="KETRZYN">KETRZYN</option><option value="KOLNO">KOLNO</option><option value="Kozle">Kozle</option><option value="Krakow">Krakow</option><option value="KUTNO">KUTNO</option><option value="Kutno 2">Kutno 2</option><option value="KWIDZYN">KWIDZYN</option><option value="Lebork">Lebork</option><option value="Legnica">Legnica</option><option value="LIPNO">LIPNO</option><option value="LODZ">LODZ</option><option value="Lubań">Lubań</option><option value="Lubartów">Lubartów</option><option value="lubelskim">lubelskim</option><option value="Lublin">Lublin</option><option value="MAGAZYN">MAGAZYN</option><option value="Mragowo">Mragowo</option><option value="MSZCZONOW">MSZCZONOW</option><option value="Nowa Sól">Nowa Sól</option><option value="Okonek">Okonek</option><option value="OLSZTYN">OLSZTYN</option><option value="Olsztyn 2">Olsztyn 2</option><option value="Oława">Oława</option><option value="OPOCZNO">OPOCZNO</option><option value="OSTRODA">OSTRODA</option><option value="OSTRODA 2">OSTRODA 2</option><option value="OSTROLEKA">OSTROLEKA</option><option value="PLOCK">PLOCK</option><option value="POZNAN">POZNAN</option><option value="PRZASNYCZ">PRZASNYCZ</option><option value="Raciborz">Raciborz</option><option value="RYBNIK">RYBNIK</option><option value="SANDOMIERZ">SANDOMIERZ</option><option value="Siedlec">Siedlec</option><option value="Śląski">Śląski</option><option value="Sochaczew">Sochaczew</option><option value="sokolka 2">sokolka 2</option><option value="Sokółka">Sokółka</option><option value="Suwałki">Suwałki</option><option value="SZCZECIN">SZCZECIN</option><option value="TRASA ZIELONA GORA">TRASA ZIELONA GORA</option><option value="Wałbrzych">Wałbrzych</option><option value="Warsaw">Warsaw</option><option value="Wegorzewo">Wegorzewo</option><option value="Wlodawa">Wlodawa</option><option value="Wroclaw">Wroclaw</option><option value="Zakroczym">Zakroczym</option><option value="Zawiercie">Zawiercie</option><option value="Zgorzelec">Zgorzelec</option><option value="ZIELONA GORA">ZIELONA GORA</option>
+                    </select>
+                </div>
+                  <div class="form-group">
+                    <label class="form-label" for="date">Date Input</label> 
+                    <% const today = new Date() %> 
+                    <% const tomorrow  = new Date(today); %> 
+                    <%tomorrow.setDate(tomorrow.getDate() + 1) %> 
+                    <input type="date" class="form-control" id="date" name="date" value="<%=tomorrow.toISOString().substring(0,10)%>" required>
+
+                </div>
+                  <ul class="list-unstyled">
+                  
+                    <li> <input class="form-control"type="hidden" id="customerId" name="customerId">
+
+                    </li>
+                    
+                    <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                        class="me-1 fw-bold">Status:</span><span class="badge bg-warning text-black fw-bold">
+                        Unpaid</span></li>
+                    
+                  </ul>
+                </div>
+              </div>
+              <div class="table-responsive-lg border" id="itemsContainer">
+                <div class="row my-2 mx-1">
+
+                  <div class="col-4"><label for="item">Name:</label>
+                    <div class="searchScreen">
+                      <div class="searchInputBox">
+                        <input type="text" class="searchInput form-control" name="1[name]"/>
+                        <div class="searchRealButton"></div>
+                        <div class="fakeBar"></div>
+                      </div>
+                      <ul class="autocompleteBox"></ul>
+                    </div>
+                  </div>
+                  <div class="col-2"><label for="quantity">Quantity:</label><input class="form-control"
+                      id="quantity" name="1[quantity]" value="1" type="number"></div>
+                  <div class="col-1"><label for="amount" disabled>Amount:</label><input class="form-control"
+                      id="amount" name="1[amount]" type="number" readonly></div>
+                  <div class="col-2"><label for="price">Price:</label><input class="form-control"
+                      id="price" name="1[price]" type="number" step=".01"></div>
+                  <div class="col-2"><label for="total">Total:</label><input class="totalA form-control"
+                      id="total" name="1[total]" value="1" step=".01"> 
+                    </div>
+                    
+                  <div class="col-1">
+                     <label for=""></label>
+                     <button class="btn btn-danger deleteButton" type="button">DELETE</button>
+                    </div>
+                    <input type="hidden" name="1[id]">
+                </div>
+               
+              </div>
+              <button id="addNewItem" class="btn btn-primary mt-2" type="button" style="position:static">Add item</button>
+
+              <div class="row">
+                <div class="col-xl-8 form-group">
+                  <label class="form-label" for="exampleFormControlTextarea1">Notes:</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" name="notes" rows="5"></textarea>
+
+                </div>
+                <div class="col-xl-3">
+                
+                  <p class="text-black float-start"><span class="text-black me-3"> Total Amount:</span><span
+                      style="font-size: 25px;"  id="totalAmount">0 PLN</span></p>
+                      <input type="hidden" id="totalAmountAll" name="totalAmountAll">
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-xl-10">
+               
+                </div>
+                <div class="col-xl-2">
+                  <button type="submit" class="btn btn-primary text-capitalize" id="saveButton">Save</button>
+                </div>
+              </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src="/js/Corporate/saveA.js"></script>
+    <script src="/js/Corporate/addItem.js"></script>
+    <script src="/js/Corporate/MitemSearch.js"></script>
+    
+
+
+    <%- include('../../partials/hopeFooter') %>

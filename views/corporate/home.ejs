@@ -1,0 +1,339 @@
+<%- include('../partials/hopeNavbar') %>
+<%- include('../partials/flash')%>
+<div class="conatiner-fluid content-inner pb-0">
+    <div>
+        <div class="row">
+           <div class="col-lg-4 col-md-6">
+              <div class="card">
+                 <div class="card-body">
+                    <div class="text-center">Loss this Month</div>
+                    <div class="d-flex align-items-center justify-content-between mt-3">
+                       <div>
+                          <%if(totalMonth-totalEx <= totalEx-totalMonth) {%> 
+                          <h2 class="counter"><%= totalMonth-totalEx%></h2>
+                           <% } else {%>
+                              <h2 class="counter">No Loss</h2>
+                              <% } %>  
+                       </div>
+                       <div class="border  bg-soft-danger rounded p-3">
+                        <a data-bs-toggle="tooltip"  data-bs-original-title="Bar show progress to projected(10 000zl) value">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          </svg>
+                         </a>
+                       </div>
+                    </div>
+                    <div class="mt-4"> 
+                       <div class="progress bg-soft-danger shadow-none w-100" style="height: 6px">
+                          <div class="progress-bar bg-danger" data-toggle="progress-bar" role="progressbar" aria-valuenow="<%=Math.round(totalEx-totalMonth/10000 *100)%>" aria-valuemin="0" aria-valuemax="100"></div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-md-6">
+              <div class="card">
+                 <div class="card-body">
+                    <div class="text-center">Revenue(this month)</div>
+                    <div class="d-flex align-items-center justify-content-between mt-3">
+                       <div>
+                             <h2 class="counter"><%=totalMonth%></h2>
+                          <%=Math.round(totalMonth/500000 *100)%>%
+                       </div>
+                       <div class="border bg-soft-info rounded p-3">
+                        <a data-bs-toggle="tooltip"  data-bs-original-title="Bar and % show progress to projected(500 000zl) value">
+                          <svg xmlns="http://www.w3.org/2000/svg"  width="20px" height="20px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                          </svg>
+                        </a>
+                       </div>
+                    </div>
+                    <div class="mt-4">
+                       <div class="progress bg-soft-info shadow-none w-100" style="height: 6px">
+                          <div class="progress-bar bg-info" data-toggle="progress-bar" role="progressbar" aria-valuenow="<%=totalMonth/500000 *100%>" aria-valuemin="0" aria-valuemax="100"></div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-md-6">
+              <div class="card">
+                 <div class="card-body">
+                    <div class="text-center">Profit(this month)</div>
+                    <div class="d-flex align-items-center justify-content-between mt-3">
+                       <div>
+                             <h2 class="counter"><%=Math.round(totalMonth - totalActual)%></h2>
+                             <%=Math.round((totalMonth - totalActual)/100000 *100)%>%
+                       </div>
+                       <div class="border bg-soft-success rounded p-3">
+                        <a data-bs-toggle="tooltip"  data-bs-original-title="Bar and % show progress to projected(100 000zl) value">
+                          <svg xmlns="http://www.w3.org/2000/svg"  width="20px" height="20px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                          </svg>
+                        </a>
+                       </div>
+                    </div>
+                    <div class="mt-4">
+                       <div class="progress bg-soft-success shadow-none w-100" style="height: 6px">
+                          <div class="progress-bar bg-success" data-toggle="progress-bar" role="progressbar" aria-valuenow="<%=(totalMonth - totalActual)/100000 *100%>" aria-valuemin="0" aria-valuemax="100"></div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+       
+           <div class="col-lg-4 col-md-6">
+              <div class="card">
+                 <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                       <div class="bg-info text-white rounded p-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                       </div>
+                       <div class="text-end">
+                          CLients
+                             <h2 class="counter"><%=clientCounts%></h2>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="col-lg-4 col-md-6">
+              <div class="card">
+                 <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                       <div class="bg-warning text-white rounded p-3">
+                        <svg width="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">  
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1213 11.2331H16.8891C17.3088 11.2331 17.6386 10.8861 17.6386 10.4677C17.6386 10.0391 17.3088 9.70236 16.8891 9.70236H14.1213C13.7016 9.70236 13.3719 10.0391 13.3719 10.4677C13.3719 10.8861 13.7016 11.2331 14.1213 11.2331ZM20.1766 5.92749C20.7861 5.92749 21.1858 6.1418 21.5855 6.61123C21.9852 7.08067 22.0551 7.7542 21.9652 8.36549L21.0159 15.06C20.8361 16.3469 19.7569 17.2949 18.4879 17.2949H7.58639C6.25742 17.2949 5.15828 16.255 5.04837 14.908L4.12908 3.7834L2.62026 3.51807C2.22057 3.44664 1.94079 3.04864 2.01073 2.64043C2.08068 2.22305 2.47038 1.94649 2.88006 2.00874L5.2632 2.3751C5.60293 2.43735 5.85274 2.72207 5.88272 3.06905L6.07257 5.35499C6.10254 5.68257 6.36234 5.92749 6.68209 5.92749H20.1766ZM7.42631 18.9079C6.58697 18.9079 5.9075 19.6018 5.9075 20.459C5.9075 21.3061 6.58697 22 7.42631 22C8.25567 22 8.93514 21.3061 8.93514 20.459C8.93514 19.6018 8.25567 18.9079 7.42631 18.9079ZM18.6676 18.9079C17.8282 18.9079 17.1487 19.6018 17.1487 20.459C17.1487 21.3061 17.8282 22 18.6676 22C19.4969 22 20.1764 21.3061 20.1764 20.459C20.1764 19.6018 19.4969 18.9079 18.6676 18.9079Z" fill="currentColor">
+
+                             </path>                          
+                              </svg>                        
+                       </div>
+                       <div class="text-end">
+                          Products
+                             <h2 class="counter"><%=itemCounts%></h2>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+    
+           <div class="col-lg-4 col-md-6">
+              <div class="card">
+                 <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                       <div class="bg-danger text-white rounded p-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20" fill="currentColor">
+                             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                          </svg>
+                       </div>
+                       <div class="text-end">
+                          Suppliers
+                             <h2 class="counter"><%=supplierCounts%></h2>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+
+
+           <div class="col-xl-6">
+              <div class="card">
+                 <div class="card-body">
+                    <div class="d-flex justify-content-between align-itmes-center">
+                       <div>
+                          <div class="p-3 rounded bg-soft-primary">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="30px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                             </svg>
+                          </div>
+                       </div>
+                       <div>
+                          <h1><%=ordersToday%> </h1>
+                          <p class="mb-0">Order Served Today</p>
+                       </div>
+                       <div>
+                          <div class="badge bg-primary">
+                           <a data-bs-toggle="tooltip"  data-bs-original-title="% shows progress to projected(30) value">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                             </svg>
+                             </a>
+                             <span><%=Math.round(ordersToday/30 *100)%>%</span>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="col-xl-6 col-lg-6">
+              <div class="card">
+                 <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                       <div class=" bg-soft-success rounded p-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="35px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M12 18h-7l7 -7h-7" /> <path d="M17 18v-13" /> <path d="M14 14.5l6 -3.5" />                          </svg>
+                       </div>
+                       <div>
+                          <h1 class="text-success counter"><%=totalLastMonth - totalActualLast%></h1>
+                          <p class="text-success mb-0">Total Earning Last Month</p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+          
+
+           <div class="col-xl-6 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                   <div class="d-flex align-items-center justify-content-between">
+                      <div>
+                         <div class="d-flex">
+                            <div class="bg-warning text-white p-3 rounded">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="25px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                               </svg>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="mt-3">
+                         <span>MONTHLY SALES(last month)</span>
+                         <div>
+                            <h3 class="counter"><%=totalLastMonth%></h3>
+                         </div>
+                      </div>
+                      <div class="mt-3">
+                         <div class="badge bg-warning">
+                           <a data-bs-toggle="tooltip"  data-bs-original-title="% shows progress to projected(500 000zl) value">
+                            <span><%=Math.round(totalLastMonth/500000 *100)%>%</span>
+                            </a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+         </div>
+         <div class="col-xl-6 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                   <div class="d-flex justify-content-between align-itmes-center">
+                      <div>
+                       
+                         <div class="mt-2">
+                            <h2 class="counter"><%=ordersCount%></h2>
+                         </div>
+                      </div>
+                      <div>
+                         <span class="badge bg-warning">Monthly Orders</span>
+                      </div>
+                   </div>
+                  
+                   <div class="mt-3">
+                     <a data-bs-toggle="tooltip"  data-bs-original-title="Bar shows progress to projected(900) value">
+                      <div class="progress bg-soft-warning shadow-none w-100" style="height: 6px">
+                         <div class="progress-bar bg-warning" data-toggle="progress-bar" role="progressbar" aria-valuenow="<%=ordersCount/900 *100%>" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      </a>
+                   </div>
+                </div>
+             </div>
+         </div>
+    
+           <div class="col-lg-4">
+           
+              <div class="row">
+                 <div class="col-md-6">
+                    <div class="card">
+                       <div class="card-body">
+                          <div class="d-flex flex-column align-items-between">
+                             <div>
+                                <div class="d-flex">
+                                   <div class="bg-info text-white p-3 rounded">
+                                    <a data-bs-toggle="tooltip"  data-bs-original-title="Profit made from the items sold this month">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="25px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                      </svg>
+                                      </a>
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="mt-3">
+                                <span>PROFIT</span>
+                                <div>
+                                   <h3 class="counter"><%=100-Math.floor(totalActual/totalMonth *100)%>% </h3>
+                                </div>
+                             </div>
+                             <div class="mt-3">
+                                <div class="badge bg-info">
+                                 
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                   </svg>
+                             
+                                   <span><%((totalMonth-totalActual)-(totalLastMonth-totalActualLast))/(totalLastMonth-totalActualLast) *100%> <a data-bs-toggle="tooltip"  data-bs-original-title="Profit increase from last month">
+                                      %
+                                   </a></a></span>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                
+              </div>
+           </div>
+           <div class="col-lg-8">
+            <div class="card">
+               <div class="card-body">
+                  <div class="d-flex justify-content-between align-itmes-center">
+                     <div>
+                        <div class="mt-2">
+                           <h2 class="counter"><%=totalEx%></h2>
+                        </div>
+                     </div>
+                     <div>
+                        <span class="badge bg-primary">Expenses(this month)</span>
+                     </div>
+                  </div>
+                 
+                  <div class="mt-3">
+                     <div class="progress bg-soft-primary shadow-none w-100" style="height: 6px">
+                        <div class="progress-bar bg-primary" data-toggle="progress-bar" role="progressbar" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-body">
+                  <div class="d-flex justify-content-between align-itmes-center">
+                     <div>
+                        <div class="mt-2">
+                           <h2 class="counter"><%=lTotalEx%></h2>
+                        </div>
+                     </div>
+                     <div>
+                        <span class="badge bg-warning">Expenses(last month)</span>
+                     </div>
+                  </div>
+                 
+                  <div class="mt-3">
+                     <div class="progress bg-soft-warning shadow-none w-100" style="height: 6px">
+                        <div class="progress-bar bg-warning" data-toggle="progress-bar" role="progressbar" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+        </div>
+        <!--last part-->
+     </div>
+</div>
+
+ <!-- External Library Bundle Script -->
+
+ <script src="/assets/js/core/external.min.js"></script>
+
+
+<%- include('../partials/hopeFooter') %>

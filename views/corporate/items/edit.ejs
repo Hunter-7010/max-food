@@ -1,0 +1,54 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <h1 class="text-center">items</h1>
+    <div class="col-6 offset-3">
+        <form action="/items/<%=items._id%>?_method=PUT" method="post" class="needs-validation" novalidate>
+            <!-- THIS IS SAYING TO BROWSER TO NOT VALIDATE-->
+            <div class="mb-3">
+                <label class="form-label" for="itemName">Name</label>
+                <input class="form-control is-valid" type="text" name="item[itemName]" id="itemName" value="<%=items.itemName%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Price</label>
+                <input class="form-control is-valid" type="text" name="item[price]" id="price" value="<%=items.price%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="buyPrice">Buy Price</label>
+                <input class="form-control is-valid" type="text" name="item[buyPrice]" id="buyPrice" value="<%=items.buyPrice%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="quantity">Quantity</label>
+                <input class="form-control is-valid" type="text" name="item[quantity]" id="quantity" value="<%=items.quantity%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+             <div class="mb-3">
+                <label class="form-label" for="unit">Unit</label>
+                <input class="form-control is-valid" type="text" name="item[unit]" id="unit" value="<%=items.unit%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="amount">Amount</label>
+                <input class="form-control" type="number" name="item[amount]" id="amount" value="<%=items.amount%>">
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" id="saveButton">Edit</button>
+            </div>
+        </form>
+        <footer>
+            <a href="/items">Back to All</a>
+        </footer>
+    </div>
+</div>
+<script src="/js/Corporate/saveA.js"></script>
+<%- include('../../partials/hopeFooter') %>

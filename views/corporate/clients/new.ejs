@@ -1,0 +1,52 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <h1 class="text-center">Clients</h1>
+    <div class="col-6 offset-3">
+        <form action="/clients" method="post" class="needs-validation" novalidate>
+            <!-- THIS IS SAYING TO BROWSER TO NOT VALIDATE-->
+            <div class="mb-3">
+                <label class="form-label" for="clientName">Name</label>
+                <input class="form-control is-valid" type="text" name="client[name]" id="clientName" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="address">Address</label>
+                <input class="form-control is-valid" type="text" name="client[address]" id="address" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control is-valid" type="text" name="client[email]" id="email" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="nip">NIP</label>
+                <input class="form-control is-valid" type="text" name="client[nip]" id="nip" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="exampleFormControlSelect1">Select Route</label>
+                <select class="form-select is-valid" id="exampleFormControlSelect1" name="client[route]">
+                <option selected="" disabled="" value="" id="selectRoute">Select</option>
+                   <option value="" disabled>Please select</option><option value="AUGUSTOW">AUGUSTOW</option><option value="AUGUSTOW 2">AUGUSTOW 2</option><option value="BIALYSTOK">BIALYSTOK</option><option value="Bialystok 2">Bialystok 2</option><option value="CENTRUM">CENTRUM</option><option value="Elblag">Elblag</option><option value="GDANSK">GDANSK</option><option value="GIZYCKO">GIZYCKO</option><option value="Goldap">Goldap</option><option value="Grajewo">Grajewo</option><option value="Hajnówka">Hajnówka</option><option value="HRUBIESZOW">HRUBIESZOW</option><option value="KATOWICE">KATOWICE</option><option value="KETRZYN">KETRZYN</option><option value="KOLNO">KOLNO</option><option value="Kozle">Kozle</option><option value="Krakow">Krakow</option><option value="KUTNO">KUTNO</option><option value="Kutno 2">Kutno 2</option><option value="KWIDZYN">KWIDZYN</option><option value="Lebork">Lebork</option><option value="Legnica">Legnica</option><option value="LIPNO">LIPNO</option><option value="LODZ">LODZ</option><option value="Lubań">Lubań</option><option value="Lubartów">Lubartów</option><option value="lubelskim">lubelskim</option><option value="Lublin">Lublin</option><option value="MAGAZYN">MAGAZYN</option><option value="Mragowo">Mragowo</option><option value="MSZCZONOW">MSZCZONOW</option><option value="Nowa Sól">Nowa Sól</option><option value="Okonek">Okonek</option><option value="OLSZTYN">OLSZTYN</option><option value="Olsztyn 2">Olsztyn 2</option><option value="Oława">Oława</option><option value="OPOCZNO">OPOCZNO</option><option value="OSTRODA">OSTRODA</option><option value="OSTRODA 2">OSTRODA 2</option><option value="OSTROLEKA">OSTROLEKA</option><option value="PLOCK">PLOCK</option><option value="POZNAN">POZNAN</option><option value="PRZASNYCZ">PRZASNYCZ</option><option value="Raciborz">Raciborz</option><option value="RYBNIK">RYBNIK</option><option value="SANDOMIERZ">SANDOMIERZ</option><option value="Siedlec">Siedlec</option><option value="Śląski">Śląski</option><option value="Sochaczew">Sochaczew</option><option value="sokolka 2">sokolka 2</option><option value="Sokółka">Sokółka</option><option value="Suwałki">Suwałki</option><option value="SZCZECIN">SZCZECIN</option><option value="TRASA ZIELONA GORA">TRASA ZIELONA GORA</option><option value="Wałbrzych">Wałbrzych</option><option value="Warsaw">Warsaw</option><option value="Wegorzewo">Wegorzewo</option><option value="Wlodawa">Wlodawa</option><option value="Wroclaw">Wroclaw</option><option value="Zakroczym">Zakroczym</option><option value="Zawiercie">Zawiercie</option><option value="Zgorzelec">Zgorzelec</option><option value="ZIELONA GORA">ZIELONA GORA</option>
+                </select>
+            </div>
+            <input type="hidden" value="0" name="client[balance]">
+            <input type="hidden" value="0" name="client[totalDebit]">
+            <input type="hidden" value="0" name="client[totalCredit]">
+            <div class="mb-3">
+                <button class="btn btn-success" id="saveButton">Create</button>
+            </div>
+        </form>
+        <footer>
+            <a href="/clients">Back to All</a>
+        </footer>
+    </div>
+</div>
+<script src="/js/Corporate/saveA.js"></script>
+<%- include('../../partials/hopeFooter') %>

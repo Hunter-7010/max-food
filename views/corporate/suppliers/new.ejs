@@ -1,0 +1,45 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <h1 class="text-center">suppliers</h1>
+    <div class="col-6 offset-3">
+        <form action="/suppliers" method="post" class="needs-validation" novalidate>
+            <!-- THIS IS SAYING TO BROWSER TO NOT VALIDATE-->
+            <div class="mb-3">
+                <label class="form-label" for="supplierName">Name</label>
+                <input class="form-control is-valid" type="text" name="supplier[name]" id="supplierName" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="address">Address</label>
+                <input class="form-control is-valid" type="text" name="supplier[address]" id="address" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control is-valid" type="text" name="supplier[email]" id="email" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="nip">NIP</label>
+                <input class="form-control is-valid" type="text" name="supplier[nip]" id="nip" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <input type="hidden" value="0" name="supplier[balance]">
+            <input type="hidden" value="0" name="supplier[totalDebit]">
+            <input type="hidden" value="0" name="supplier[totalCredit]">
+            <div class="mb-3">
+                <button class="btn btn-success" id="saveButton">Create</button>
+            </div>
+        </form>
+        <footer>
+            <a href="/suppliers">Back to All</a>
+        </footer>
+    </div>
+</div>
+<script src="/js/Corporate/saveA.js"></script>
+<%- include('../../partials/hopeFooter') %>

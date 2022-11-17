@@ -1,0 +1,26 @@
+<%- include('../../partials/hopeNavbar') %>
+    <%- include('../../partials/flash') %>
+    <div class="conatiner-fluid content-inner mt-5 py-0">
+        <h2>Change Password</h2>
+        <form action="/profile" method="POST" class="needs-validation" autocomplete="off" novalidate>
+            <div class="mb-2">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control is-valid" name="username" placeholder="Username" value="<%=user.username%>" required>
+            </div>
+            <div class="mb-2">
+                <label for="username" class="form-label">Email</label>
+                <input type="email" class="form-control is-valid" name="email" placeholder="Email" value="<%=user.email%>" required>
+            </div>
+            <div class="mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control is-valid" name="password" placeholder="Password" required>
+               </div>
+            <div class="mb-2">
+                <label for="newPassword" class="form-label">New Password</label>
+                <input type="password" class="form-control is-valid" name="newPassword" placeholder="New Password" required>
+            </div> 
+            <button type="submit" class="btn btn-primary mt-2">Register</button>
+        </form>
+    </div>
+
+    <%- include('../../partials/hopeFooter') %>

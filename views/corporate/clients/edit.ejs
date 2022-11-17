@@ -1,0 +1,42 @@
+<%- include('../../partials/hopeNavbar') %>
+<%- include('../../partials/flash') %>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+    <h1 class="text-center">Clients</h1>
+    <div class="col-6 offset-3">
+        <form action="/clients/<%=clients._id%>?_method=PUT" method="post" class="needs-validation" novalidate>
+            <!-- THIS IS SAYING TO BROWSER TO NOT VALIDATE-->
+            <div class="mb-3">
+                <label class="form-label" for="clientName">Name</label>
+                <input class="form-control is-valid" type="text" name="client[name]" id="clientName" value="<%=clients.name%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="address">Address</label>
+                <input class="form-control is-valid" type="text" name="client[address]" id="address" value="<%=clients.address%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control is-valid" type="text" name="client[email]" id="email" value="<%=clients.email%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="nip">NIP</label>
+                <input class="form-control is-valid" type="text" name="client[nip]" id="nip" value="<%=clients.nip%>" required>
+                <!--                 IT IS USED LIKE TO SHOW LIKE campground:{title:asda,location:asda} -->
+                
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" id="saveButton">Edit</button>
+            </div>
+        </form>
+        <footer>
+            <a href="/clients">Back to All</a>
+        </footer>
+    </div>
+</div>
+<script src="/js/Corporate/saveA.js"></script>
+<%- include('../../partials/hopeFooter') %>

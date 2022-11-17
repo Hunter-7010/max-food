@@ -1,0 +1,175 @@
+<%- include('../../partials/hopeNavbar') %> <%- include('../../partials/flash')
+%>
+<div class="conatiner-fluid content-inner mt-5 py-0">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <div class="header-title">
+            <h4 class="card-title">suppliers</h4>
+            <a href="/suppliers/new">Add New supplier</a>
+          </div>
+          <div class="searchScreen">
+            <div class="searchInputBox">
+              <input
+                type="text"
+                class="searchInput form-control"
+                placeholder="Search"
+              />
+
+              <div class="filterButton"></div>
+              <div class="queryBox">
+                <div class="priceBox"></div>
+              </div>
+              <div class="searchRealButton"></div>
+              <div class="fakeBar"></div>
+            </div>
+            <ul class="autocompleteBox"></ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="datatable" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>NIP</th>
+                  <th>Total Buys</th>
+                  <th>Created At</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%for(let supplier of suppliers){%>
+                <tr>
+                  <td>
+                    <a
+                      href="/suppliers/<%=supplier._id%>"
+                      data-bs-toggle="tooltip"
+                      data-bs-original-title="Show supplier"
+                      ><svg
+                        width="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="11.7669"
+                          cy="11.7666"
+                          r="8.98856"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></circle>
+                        <path
+                          d="M18.0186 18.4851L21.5426 22"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                    ></a>
+                    <%=supplier.name%>
+                  </td>
+                  <td><%=supplier.address%></td>
+                  <td><%=supplier.nip%></td>
+                  <td><%=supplier.totalDebit%></td>
+                  <td>
+                    <%let date =
+                    supplier.createdAt%><%=date.toISOString().substring(0,10)%>
+                  </td>
+                  <td><%=supplier.balance%></td>
+                </tr>
+                <%}%>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>NIP</th>
+                  <th>Total Buys</th>
+                  <th>Created At</th>
+                  <th>Balance</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="dataTables_paginate paging_simple_numbers"
+              id="datatable_paginate"
+            >
+              <ul class="pagination">
+                <li
+                  class="paginate_button page-item previous <%if(p==1){%>disabled<%}%>"
+                  id="datatable_previous"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/suppliers?p=<%=parseInt(p)-1%>"
+                    class="page-link"
+                    >Previous</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==1){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/suppliers?p=1"
+                    class="page-link"
+                    >1</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==2){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/suppliers?p=2"
+                    class="page-link"
+                    >2</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==3){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/suppliers?p=3"
+                    class="page-link"
+                    >3</a
+                  >
+                </li>
+                <li class="paginate_button page-item <%if(p==4){%>active<%}%>">
+                  <a
+                    href="https://maxfood.up.railway.app/suppliers?p=4"
+                    class="page-link"
+                    >4</a
+                  >
+                </li>
+                <li class="paginate_button page-item disabled">
+                  <a class="page-link">...</a>
+                </li>
+                <li
+                  class="paginate_button page-item <%if(p==count){%>active<%}%>"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/suppliers?p=<%=count%>"
+                    class="page-link"
+                    ><%=count%></a
+                  >
+                </li>
+                <li
+                  class="paginate_button page-item next <%if(p==count){%>disabled<%}%>"
+                  id="datatable_next"
+                >
+                  <a
+                    href="https://maxfood.up.railway.app/suppliers?p=<%=parseInt(p)+1%>"
+                    class="page-link"
+                    >Next</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/Corporate/supplierSearch.js"></script>
+<%- include('../../partials/hopeFooter') %>
