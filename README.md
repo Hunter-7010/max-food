@@ -33,6 +33,7 @@ Create users and authorize them for certain Roles.
 - Authorize users
 - Use connect-flash to flash users with error and success messages.
 
-![New Invoice](https://res.cloudinary.com/dddvtrxcz/image/upload/c_scale,w_1039/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.45.43_k6bljj.png)
-![View Invoice](https://res.cloudinary.com/dddvtrxcz/image/upload/c_scale,w_1039/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.46.37_gwcffh.png)
-![Clients](https://res.cloudinary.com/dddvtrxcz/image/upload/c_scale,w_1051/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.45.16_itaiu9.png)
+![New Invoice]([https://res.cloudinary.com/dddvtrxcz/image/upload/c_scale,w_1039/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.45.43_k6bljj.png](https://res.cloudinary.com/dddvtrxcz/image/upload/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.45.43_k6bljj.png))
+![View Invoice]([https://res.cloudinary.com/dddvtrxcz/image/upload/c_scale,w_1039/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.46.37_gwcffh.png](https://res.cloudinary.com/dddvtrxcz/image/upload/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.46.37_gwcffh.png))
+![Clients]([https://res.cloudinary.com/dddvtrxcz/image/upload/c_scale,w_1051/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.45.16_itaiu9.png](https://res.cloudinary.com/dddvtrxcz/image/upload/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.45.16_itaiu9.png))
+![Summary](https://res.cloudinary.com/dddvtrxcz/image/upload/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.47.08_heipsx.png)
