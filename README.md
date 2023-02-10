@@ -30,7 +30,7 @@ Create users and authorize them for certain Roles.
 - Create invoice page with dynamic user inputs.
 - Keep track of user dynamic inputs with Event bubbling.
 - Authenticate Users using Passport.js
-- Authorize users
+- Authorize users.
 - Use connect-flash to flash users with error and success messages.
 
 ![New Invoice](https://res.cloudinary.com/dddvtrxcz/image/upload/v1673520472/samples/ecommerce/Screen_Shot_2023-01-12_at_13.45.43_k6bljj.png)
